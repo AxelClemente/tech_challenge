@@ -8,7 +8,8 @@ const PhoneDetail = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    axios.get(`/phones/${id}`).then(response => {
+    axios.get(`http://localhost:5005/phones/${id}`)
+      .then(response => {
       setPhone(response.data);
       setLoading(false);
     });
@@ -21,7 +22,7 @@ const PhoneDetail = () => {
   return (
     <div>
       <h1>{phone.name}</h1>
-      <img src={`/assets/${phone.imageFileName}`} alt={phone.name} />
+      {/* <img src={`/assets/${phone.imageFileName}`} alt={phone.name} /> */}
       <p>{phone.description}</p>
       <ul>
         <li>Manufacturer: {phone.manufacturer}</li>
@@ -36,3 +37,4 @@ const PhoneDetail = () => {
 };
 
 export default PhoneDetail;
+
